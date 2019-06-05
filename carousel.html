@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Carousel</title>
+        <style>
+            .container
+            {
+                margin: auto;
+                margin-top: 100px;
+                max-width: 300px;
+                position: relative;
+            }
+            .pic
+            {
+                display: none;
+            }
+            .prev, .next
+            {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 10px;
+                margin-top: -20px;
+                color: orange;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 5px;
+            }
+            .next
+            {
+                right: 0;
+            }
+            img
+            {
+                width: 100%;
+            }
+            .prev:hover, .next:hover
+            {
+                background-color: rgba(0,0,0,0.8);
+            }
+            .buttons
+            {
+                position: absolute;
+                top: 85%;
+                left: 42%;
+            }
+            .button
+            {
+                cursor:pointer;
+                height: 10px;
+                width: 10px;
+                margin: 0 2px;
+                background-color: black;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+            .active, .button:hover
+            {
+                background-color: orange;
+            }
+            #fade
+            {
+                -webkit-animation-name: fade;
+                animation-name: fade;
+                -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+            }
+            @-webkit-keyframes fade
+            {
+                0% { opacity: 0.2; }
+                100% { opacity: 1; }
+            }
+            @keyframes fade
+            {
+                0% { opacity: 0.2; }
+                100% { opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="pic" id="fade">
+                <img src="./1.jpeg">
+            </div>
+            <div class="pic" id="fade">
+                <img src="./2.jpeg">
+            </div>
+            <div class="pic" id="fade">
+                <img src="./3.jpeg">
+            </div>
+            <a class="prev" onclick="shiftPic(-1)">&#10094;</a>
+            <a class="next" onclick="shiftPic(1)">&#10095;</a><br>
+            <div class="buttons" style="text-align: center">
+                <span class="button" onclick="changePic(1)"></span>
+                <span class="button" onclick="changePic(2)"></span>
+                <span class="button" onclick="changePic(3)"></span>
+            </div>
+        </div>
+        <script>
+            var n = 1;
+            show();
+            function shiftPic(i)
+            {
+                n = n + i;
+                if(n > 3) n = 1;
+                if(n == 0) n = 3;
+                show();
+            }
+            function changePic(i)
+            {
+                n=i;
+                show();
+            }
+            function show()
+            {
+                for(let j = 0; j < 3; j++)
+                {
+                    document.getElementsByClassName('pic')[j].style.display = 'none';
+                }
+                document.getElementsByClassName('pic')[n-1].style.display = 'block';
+            }
+        </script>
+        </body>
+</html>

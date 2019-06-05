@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>SoC Data Table</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <style>
+            .hide
+            {
+                display: none;
+            }
+        </style>
+        <script>
+            function filter()
+            {
+                name = []
+                rows = document.getElementsByTagName('tr');
+                search = document.getElementById('search').value;
+                var f1 = true, f2 = true;
+                for(row of rows)
+                {
+                    if(f2)
+                    {
+                        f2 = false;
+                        continue;
+                    }
+                    row.classList.remove("hide");
+                }
+                for(row of rows)
+                {
+                    if(f1)
+                    {
+                        f1 = false;
+                        continue;
+                    }
+                    name = row.getElementsByTagName('td')[1].innerText;
+                    if(name.toUpperCase().includes(search.toUpperCase().trim())){}
+                    else
+                    {
+                        row.classList.add("hide");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body style="background-color: steelblue">
+        <center>
+            <br>
+            <div class="col-sm-12">
+            <form class="form-inline">
+                &nbsp;&nbsp;
+                <input class="form-control col-sm-5" type="text" id="search" placeholder="Search..">&nbsp;&nbsp;&nbsp;
+                <input type="button" class="btn btn-primary" value="GO!" onclick="filter()">
+            </form>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>Krishna Dhakshin</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Prakhar Neema</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>Abhishek Mittal</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1004</td>
+                        <td>Dipesh Khandelwal</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1005</td>
+                        <td>Divyanshu Bhardwaj</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1006</td>
+                        <td>Sarthak K</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1007</td>
+                        <td>Sarthak D</td>
+                        <td>Y18</td>
+                    </tr>
+                    <tr>
+                        <td>1008</td>
+                        <td>Tanmay</td>
+                        <td>Y17</td>
+                    </tr>
+                    <tr>
+                        <td>1009</td>
+                        <td>Yugesh kothari</td>
+                        <td>Y17</td>
+                    </tr>
+                    <tr>
+                        <td>1010</td>
+                        <td>Yasharth Bajpai</td>
+                        <td>Y17</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </center>
+    </body>
+</html>
