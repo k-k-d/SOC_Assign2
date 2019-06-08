@@ -18,7 +18,7 @@
                     $("tr").removeClass("hide");
                     $("#tablebody tr").filter(function(){
                         var name = $(this).text().toUpperCase();
-                        var search = $("#search").val().toUpperCase();
+                        var search = $("#search").val().toUpperCase().trim();
                         return (!name.includes(search));
                     }).addClass("hide");
                 });
